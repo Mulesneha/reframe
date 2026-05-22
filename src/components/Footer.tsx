@@ -16,7 +16,10 @@ export default function Footer() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <footer className="w-full border-t border-[var(--border)] bg-[var(--bg)] text-[var(--text)] px-6 py-16 mt-20 transition-colors duration-300">
+    <footer
+      id="contact"
+      className="w-full border-t border-[var(--border)] bg-[var(--bg)] text-[var(--text)] px-6 py-16 mt-20 transition-colors duration-300"
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
         {/* Brand Section */}
         <div className="md:col-span-5 space-y-6">
@@ -54,6 +57,7 @@ export default function Footer() {
           <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-40">
             Navigation
           </h3>
+
           <nav className="flex flex-col gap-3 text-sm">
             <a
               href="https://github.com/magic-peach/reframe"
@@ -63,12 +67,15 @@ export default function Footer() {
             >
               GitHub
             </a>
-            <Link
-              href="/contact"
+
+            {/* Contact Scroll Link */}
+            <a
+              href="#contact"
               className="opacity-70 hover:opacity-100 hover:text-red-400 hover:scale-110 transition-all duration-500 ease-in-out w-fit flex items-center gap-2 group"
             >
               Contact
-            </Link>
+            </a>
+
             <Link
               href="/privacy"
               className="opacity-70 hover:opacity-100 hover:text-red-400 hover:scale-110 transition-all duration-500 ease-in-out w-fit flex items-center gap-2 group"
@@ -78,9 +85,9 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* Right Section: Newsletter & Community */}
+        {/* Right Section */}
         <div className="md:col-span-4 flex flex-col items-start md:items-end space-y-8">
-          {/* Newsletter - Logic updated to pass Lint/Build checks */}
+          {/* Newsletter */}
           <div className="w-full flex flex-col items-start md:items-end gap-3">
             <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-40">
               Updates
@@ -119,6 +126,7 @@ export default function Footer() {
                     aria-label="Email address for updates"
                     onBlur={() => setIsExpanded(false)}
                   />
+
                   <button
                     aria-label="Submit email for updates"
                     type="submit"
@@ -131,7 +139,6 @@ export default function Footer() {
             )}
           </div>
 
-          {/* Community Section */}
           {/* Community Section */}
           <div className="flex flex-col items-start md:items-end gap-3">
             <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-40">
@@ -188,6 +195,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-[var(--border)] flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-bold uppercase tracking-[0.3em] opacity-40">
         <p>© {new Date().getFullYear()} Reframe · MIT License</p>
+
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.4)]" />
           Processing happens locally
