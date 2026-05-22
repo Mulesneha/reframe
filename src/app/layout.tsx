@@ -6,7 +6,19 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import ScrollToTop from "@/components/ScrollToTop";
 import BrandLogo from "@/components/BrandLogo";
+import Navbar from "@/components/Navbar"; // adjust path as needed
+import "./globals.css";
 
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <body>
+        <Navbar />
+        <main className="pt-16">{children}</main>
+      </body>
+    </html>
+  );
+}
 export const metadata: Metadata = {
   title: "Reframe — Resize, trim, and export videos in your browser",
   description: "Free, open-source video editor that runs entirely in your browser. No login, no uploads, no ads. Resize for any platform, trim, rotate, adjust speed, and export.",
