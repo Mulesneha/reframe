@@ -44,7 +44,7 @@ export default function Footer() {
             ].map((tag) => (
               <span
                 key={tag.label}
-                className="flex items-center gap-1.5 px-3 py-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] text-[10px] font-semibold tracking-wide uppercase transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-[0_0_10px_rgba(255,255,255,0.08)] cursor-pointer select-none"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] text-[10px] font-semibold tracking-wide uppercase transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:border-[var(--accent)] hover:bg-[var(--accent-muted)] hover:shadow-[var(--shadow)] cursor-pointer select-none"
               >
                 {tag.icon} {tag.label}
               </span>
@@ -63,7 +63,7 @@ export default function Footer() {
               href="https://github.com/magic-peach/reframe"
               target="_blank"
               rel="noopener"
-              className="opacity-70 hover:opacity-100 hover:text-red-400 hover:scale-110 transition-all duration-500 ease-in-out w-fit flex items-center gap-2 group"
+              className="opacity-70 hover:opacity-100 hover:text-[var(--accent)] hover:scale-110 transition-all duration-500 ease-in-out w-fit flex items-center gap-2 group"
             >
               GitHub
             </a>
@@ -78,7 +78,7 @@ export default function Footer() {
 
             <Link
               href="/privacy"
-              className="opacity-70 hover:opacity-100 hover:text-red-400 hover:scale-110 transition-all duration-500 ease-in-out w-fit flex items-center gap-2 group"
+              className="opacity-70 hover:opacity-100 hover:text-[var(--accent)] hover:scale-110 transition-all duration-500 ease-in-out w-fit flex items-center gap-2 group"
             >
               Privacy Policy
             </Link>
@@ -109,7 +109,7 @@ export default function Footer() {
             ) : (
               <div
                 id="updates-signup-form"
-                className="w-full sm:w-72 px-4 flex items-center bg-[var(--surface)] border border-blue-500/50 rounded-lg transition-all duration-500 ease-in-out"
+                className="w-full sm:w-72 px-4 flex items-center bg-[var(--surface)] border border-[var(--accent)] rounded-lg transition-all duration-500 ease-in-out"
               >
                 <form
                   aria-label="Updates signup form"
@@ -130,7 +130,7 @@ export default function Footer() {
                   <button
                     aria-label="Submit email for updates"
                     type="submit"
-                    className="text-blue-500 hover:text-blue-400 p-1"
+                    className="text-[var(--accent)] hover:text-[var(--accent-hover)] p-1"
                   >
                     <ArrowRight size={16} aria-hidden="true" />
                   </button>
@@ -150,7 +150,7 @@ export default function Footer() {
                 href="https://github.com/magic-peach/reframe"
                 target="_blank"
                 rel="noopener"
-                className="p-2.5 rounded-lg border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--border)] transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center group"
+                className="p-2.5 rounded-lg border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent)] hover:bg-[var(--accent-muted)] transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center group"
                 aria-label="Open Reframe GitHub repository"
               >
                 <Github
@@ -164,7 +164,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener"
-                className="p-2.5 rounded-lg border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--border)] transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center group"
+                className="p-2.5 rounded-lg border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent)] hover:bg-[var(--accent-muted)] transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center group"
                 aria-label="Open Twitter"
               >
                 <TwitterIcon
@@ -178,7 +178,7 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener"
-                className="p-2.5 rounded-lg border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--border)] transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center group"
+                className="p-2.5 rounded-lg border border-[var(--border)] bg-[var(--surface)] hover:border-[var(--accent)] hover:bg-[var(--accent-muted)] transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center group"
                 aria-label="Open Instagram"
               >
                 <Instagram
@@ -197,7 +197,7 @@ export default function Footer() {
         <p>© {new Date().getFullYear()} Reframe · MIT License</p>
 
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.4)]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shadow-[0_0_8px_var(--accent)]" />
           Processing happens locally
         </div>
       </div>
