@@ -1,28 +1,18 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Syne, DM_Sans } from "next/font/google";
-import ErrorBoundary from "@/components/ErrorBoundary";
 import "./globals.css";
+
+import ErrorBoundary from "@/components/ErrorBoundary";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import ScrollToTop from "@/components/ScrollToTop";
 import BrandLogo from "@/components/BrandLogo";
-import Navbar from "@/components/Navbar"; // adjust path as needed
-import "./globals.css";
+import Navbar from "@/components/Navbar";
 
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en" className="scroll-smooth">
-      <body>
-        <Navbar />
-        <main className="pt-16">{children}</main>
-      </body>
-    </html>
-  );
-}
 export const metadata: Metadata = {
   title: "Reframe — Resize, trim, and export videos in your browser",
-  description: "Free, open-source video editor that runs entirely in your browser. No login, no uploads, no ads. Resize for any platform, trim, rotate, adjust speed, and export.",
-   keywords: [
+  description:
+    "Free, open-source video editor that runs entirely in your browser. No login, no uploads, no ads. Resize for any platform, trim, rotate, adjust speed, and export.",
+  keywords: [
     "video editor",
     "browser video editor",
     "open source video editor",
@@ -31,16 +21,13 @@ export const metadata: Metadata = {
     "rotate videos",
     "online video editor",
   ],
-
   authors: [{ name: "Reframe" }],
-
   openGraph: {
     title: "Reframe",
     description:
       "Free, open-source browser-based video editor. Resize, trim, rotate, and export videos directly in your browser.",
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Reframe",
@@ -59,10 +46,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-<html lang="en" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -71,34 +59,40 @@ export default function RootLayout({
                   var stored = localStorage.getItem('theme');
                   var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                   var isDark = stored === 'dark' || (!stored && prefersDark);
+
                   if (isDark) {
                     document.documentElement.classList.add('dark');
                   } else {
                     document.documentElement.classList.remove('dark');
                   }
+
                   if (stored === 'high-contrast') {
-                    document.documentElement.setAttribute(
-                      'data-theme',
-                      'high-contrast'
-                    );
+                    document.documentElement.setAttribute('data-theme', 'high-contrast');
                   } else {
                     document.documentElement.removeAttribute('data-theme');
-                  }  
+                  }
                 } catch (e) {}
               })();
             `,
           }}
         />
       </head>
+
       <body className="min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased">
-        
-      <a href="#main-content"
+        {/* Skip link */}
+        <a
+          href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black"
         >
           Skip to main content
         </a>
+
         <ThemeProvider>
           <ErrorBoundary>
+            {/* Navbar (your added component) */}
+            <Navbar />
+
+            {/* Optional header UI */}
             <header
               role="banner"
               className="sticky top-0 z-50 flex items-center justify-between px-6 py-3 border-b border-[var(--border)] bg-[var(--bg)]"
@@ -107,11 +101,14 @@ export default function RootLayout({
                 <BrandLogo size={24} />
                 <h1 className="text-lg font-semibold">Reframe</h1>
               </div>
+
               <ThemeToggle />
             </header>
+
             <main id="main-content" tabIndex={-1}>
               {children}
             </main>
+
             <ScrollToTop />
           </ErrorBoundary>
         </ThemeProvider>
